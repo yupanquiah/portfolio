@@ -1,1 +1,69 @@
 @import "tailwindcss";
+
+@theme {
+  --color-primary: oklch(0.17 0.01 286);
+  --color-y: oklch(0.1923 0.005 273.16);
+  --color-mauve-50: oklch(0.9702 0.012 314.69);
+  --color-mauve-100: oklch(0.944 0.026 314.5);
+  --color-mauve-200: oklch(0.9065 0.047 314.45);
+  --color-mauve-300: oklch(0.8467 0.084 313.38);
+  --color-mauve-400: oklch(0.7569 0.139 312.72);
+  --color-mauve-500: oklch(0.6625 0.178 311.26);
+  --color-mauve-600: oklch(0.5747 0.192 309.9);
+  --color-mauve-700: oklch(0.5034 0.181 309.43);
+  --color-mauve-800: oklch(0.4273 0.165 308.44);
+  --color-mauve-900: oklch(0.3577 0.144 307.78);
+  --color-mauve-950: oklch(0.2546 0.122 307.61);
+
+  --animete-fade-down: fade-down 0.5s ease-out;
+  --animate-flicker: flicker 5s ease-in infinite;
+
+  @keyframes fade-down {
+    0% {
+      opacity: 0;
+      transform: translateY(-5px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes flicker {
+    0% {
+      opacity: 0.5;
+      text-shadow: 0 0 5px rgba(16, 185, 129, 1), 0 0 10px rgba(16, 185, 129, 1);
+    }
+
+    20% {
+      opacity: 1;
+      text-shadow: 0 0 12px rgba(16, 185, 129, 1), 0 0 25px rgba(16, 185, 129, 0.8);
+    }
+
+    35% {
+      opacity: 0.6;
+      text-shadow: 0 0 8px rgba(16, 185, 129, 1), 0 0 15px rgba(16, 185, 129, 0.6);
+    }
+
+    50% {
+      opacity: 0.8;
+      text-shadow: 0 0 10px rgba(16, 185, 129, 1), 0 0 20px rgba(16, 185, 129, 0.9);
+    }
+
+    65% {
+      opacity: 0.4;
+      text-shadow: 0 0 6px rgba(16, 185, 129, 1), 0 0 12px rgba(16, 185, 129, 0.7);
+    }
+
+    80% {
+      opacity: 1;
+      text-shadow: 0 0 15px rgba(16, 185, 129, 1), 0 0 30px rgba(16, 185, 129, 1);
+    }
+
+    100% {
+      opacity: 0.5;
+      text-shadow: 0 0 5px rgba(16, 185, 129, 1), 0 0 10px rgba(16, 185, 129, 1);
+    }
+  }
+}
