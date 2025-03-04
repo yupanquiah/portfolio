@@ -1,5 +1,12 @@
 {
   "extends": "astro/tsconfigs/strict",
+  "include": [
+    ".astro/types.d.ts",
+    "**/*"
+  ],
+  "exclude": [
+    "dist"
+  ],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
@@ -13,10 +20,10 @@
         "src/sections/*"
       ],
       "@icons/*": [
-        "src/icons/*"
+        "src/assets/icons/*"
       ],
       "@flags/*": [
-        "src/flags/*"
+        "src/assets/flags/*"
       ],
       "@lib/*": [
         "src/lib/*"
