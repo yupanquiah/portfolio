@@ -25,6 +25,9 @@
       "@flags/*": [
         "src/assets/flags/*"
       ],
+      "@imgs/*": [
+        "src/assets/imgs/*"
+      ],
       "@lib/*": [
         "src/lib/*"
       ],
