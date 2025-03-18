@@ -1,7 +1,7 @@
 // @ts-check
 import vercelAdapter from '@astrojs/vercel'
 import tailwindcss from '@tailwindcss/vite'
-import { defineConfig, envField } from 'astro/config'
+import { defineConfig } from 'astro/config'
 
 // https://astro.build/config
 export default defineConfig({
@@ -11,9 +11,4 @@ export default defineConfig({
   output: 'server',
   adapter: vercelAdapter(),
   prefetch: true,
-  env: {
-    schema: {
-      GEOLOCATION: envField.string({ context: "client", access: "public" }),
-    }
-  }
 })
