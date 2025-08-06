@@ -1,42 +1,22 @@
----
-import { ClientRouter } from "astro:transitions";
-
-import Header from "@sections/Header.astro";
-
-import "@styles/font.css";
-import "@styles/global.css";
-
-interface Props {
-	title: string;
-	class: string;
-}
-
-const { title } = Astro.props;
----
-
 <!doctype html>
-<html lang="es">
+<html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<title>{title}</title>
-		<ClientRouter />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro Basics</title>
 	</head>
-	<body class="w-full h-auto bg-primary text-mauve-50/80">
-		<header
-			class="sticky top-0 z-10 border px-6 py-3 border-mauve-300/20 bg-y/50 text-mauve-50 backdrop-blur-md"
-		>
-			<Header />
-		</header>
-		<main
-			class:list={[
-				"max-w-screen-lg mx-auto p-6 overflow-hidden",
-				Astro.props.class,
-			]}
-		>
-			<slot />
-		</main>
+	<body>
+		<slot />
 	</body>
 </html>
+
+<style>
+	html,
+	body {
+		margin: 0;
+		width: 100%;
+		height: 100%;
+	}
+</style>

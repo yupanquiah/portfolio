@@ -1,28 +1,11 @@
 ---
-import Layout from "@layouts/Layout.astro";
+import Welcome from '../components/Welcome.astro';
+import Layout from '../layouts/Layout.astro';
 
-import About from "@sections/About.astro";
-import Contact from "@sections/Contact.astro";
-import Hero from "@sections/Hero.astro";
-import LastVisit from "@sections/LastVisit.astro";
-import Now from "@sections/Now.astro";
-import Photo from "@sections/Photo.astro";
-import Project from "@sections/Project.astro";
-import TimeZone from "@sections/TimeZone.astro";
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout
-	title="Portafolio"
-	class="grid grid-cols-1 gap-2.5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
->
-	<Hero class="md:col-span-2 row-span-1 lg:col-span-3" />
-	<About class="row-span-2" />
-	<Contact class="lg:row-span-3 md:row-span-4" />
-	<TimeZone
-		class="row-span-1 md:col-span-1 lg:col-span-2 md:row-span-2 lg:row-span-1"
-	/>
-	<Now class="row-span-2" />
-	<LastVisit class="row-span-1 md:col-span-1 lg:col-span-2" />
-	<Project class="row-span-1" />
-	<Photo class="row-span-1" />
+<Layout>
+	<Welcome />
 </Layout>
