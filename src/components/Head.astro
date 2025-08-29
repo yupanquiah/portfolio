@@ -1,0 +1,27 @@
+---
+import { Font } from "astro:assets";
+import { ClientRouter } from "astro:transitions";
+
+const { name } = Astro.props;
+---
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <Font cssVariable="--font-n27" preload />
+  <title>Portfolio - {name}</title>
+  <script is:inline>
+    const root = document.documentElement;
+    const isDark =
+      localStorage.theme === "dark" ||
+      !(
+        "theme" in localStorage &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+      );
+
+    root.setAttribute("data-theme", isDark ? "dark" : "light");
+    localStorage.theme = isDark ? "dark" : "light";
+  </script>
+  <ClientRouter />
+</head>

@@ -1,0 +1,44 @@
+---
+import Section from "@components/Section.astro";
+
+import Logo from "@assets/astro.svg";
+import Moon from "@icons/moon.svg";
+import Sun from "@icons/sun.svg";
+
+interface Props {
+  title: string;
+  href: string;
+}
+
+const NAV_ITEMS: Props[] = [
+  { title: "Home", href: "/" },
+  { title: "About", href: "#about" },
+  { title: "Projects", href: "#projects" },
+  { title: "Contact", href: "#contact" },
+];
+---
+
+<header
+  class="w-full sticky top-0 z-50 border-b border-slate-200 dark:border-slate-600"
+>
+  <Section class="flex-row items-center justify-between py-2">
+    <Logo />
+    <nav class="flex">
+      <ul class="flex">
+        {
+          NAV_ITEMS.map(({ title, href }) => (
+            <li>
+              <a href={href}>{title}</a>
+            </li>
+          ))
+        }
+      </ul>
+      <div>
+        <button id="theme-toggle" class="cursor-pointer">
+          <Sun class="w-6 h-6 hidden dark:block" />
+          <Moon class="w-6 h-6 block dark:hidden" />
+        </button>
+      </div>
+    </nav>
+  </Section>
+</header>

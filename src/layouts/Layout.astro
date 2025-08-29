@@ -1,17 +1,47 @@
 ---
-import { Font } from "astro:assets";
+import Head from "@components/Head.astro";
+
+const { lang = "es" } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <Font cssVariable="--font-n27" preload />
-    <title>Astro Basics</title>
-  </head>
-  <body class="bg-gray-300 font-n27">
-    <slot />
+<html lang={lang} data-theme="dark">
+  <Head name="Humberto Yupanqui Apaza" />
+  <body>
+    <div
+      class="w-full h-auto bg-slate-50 dark:bg-slate-950 text-slate-950 dark:text-slate-50"
+    >
+      <slot />
+    </div>
   </body>
 </html>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const root = document.documentElement;
+    const themeToggle = document.getElementById(
+      "theme-toggle",
+    ) as HTMLButtonElement;
+
+    const applyTheme = () => {
+      const isDark =
+        localStorage.theme === "dark" ||
+        !(
+          "theme" in localStorage &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches
+        );
+      root.setAttribute("data-theme", isDark ? "dark" : "light");
+      localStorage.theme = isDark ? "dark" : "light";
+    };
+
+    const changeTheme = () => {
+      const isDarkMode = root.getAttribute("data-theme") === "dark";
+      root.setAttribute("data-theme", isDarkMode ? "light" : "dark");
+      localStorage.theme = isDarkMode ? "light" : "dark";
+    };
+
+    themeToggle.addEventListener("click", changeTheme);
+
+    applyTheme();
+  });
+</script>
