@@ -1,10 +1,6 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": [
-    "unicorn",
-    "typescript",
-    "oxc"
-  ],
+  "plugins": ["unicorn", "typescript", "oxc"],
   "categories": {},
   "rules": {
     "for-direction": "warn",
@@ -111,9 +107,5 @@
     "unicorn/prefer-set-size": "warn",
     "unicorn/prefer-string-starts-ends-with": "warn"
   },
-  "ignorePatterns": [
-    "node_modules",
-    "dist",
-    ".astro"
-  ]
+  "ignorePatterns": ["node_modules", "dist", ".astro"]
 }

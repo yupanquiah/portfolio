@@ -16,10 +16,12 @@ const NAV_ITEMS: Props[] = [
   { title: "Projects", href: "#projects" },
   { title: "Contact", href: "#contact" },
 ];
+
+var logo;
 ---
 
 <header
-  class="w-full sticky top-0 z-50 border-b border-slate-200 dark:border-slate-600"
+  class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-600"
 >
   <Section class="flex-row items-center justify-between py-2">
     <Logo />
@@ -35,8 +37,8 @@ const NAV_ITEMS: Props[] = [
       </ul>
       <div>
         <button id="theme-toggle" class="cursor-pointer">
-          <Sun class="w-6 h-6 hidden dark:block" />
-          <Moon class="w-6 h-6 block dark:hidden" />
+          <Sun class="hidden h-6 w-6 dark:block" />
+          <Moon class="block h-6 w-6 dark:hidden" />
         </button>
       </div>
     </nav>
