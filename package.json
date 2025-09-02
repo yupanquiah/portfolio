@@ -6,11 +6,17 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint": "oxlint -c ./.oxlintrc.json ./tsconfig.json --type-aware",
+    "lint:fix": "oxlint --fix"
   },
   "dependencies": {
     "@tailwindcss/vite": "4.1.11",
     "astro": "5.13.3",
     "tailwindcss": "4.1.11"
+  },
+  "devDependencies": {
+    "oxlint": "1.14.0",
+    "oxlint-tsgolint": "0.1.5"
   }
 }
