@@ -16,8 +16,6 @@ const NAV_ITEMS: Props[] = [
   { title: "Projects", href: "#projects" },
   { title: "Contact", href: "#contact" },
 ];
-
-var logo;
 ---
 
 <header
@@ -29,7 +27,7 @@ var logo;
       <ul class="flex">
         {
           NAV_ITEMS.map(({ title, href }) => (
-            <li>
+            <li class="px-3 py-2">
               <a href={href}>{title}</a>
             </li>
           ))
