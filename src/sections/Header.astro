@@ -1,4 +1,5 @@
 ---
+import Backdrop from "@components/Backdrop.astro";
 import Section from "@components/Section.astro";
 
 import Logo from "@assets/astro.svg";
@@ -19,16 +20,19 @@ const NAV_ITEMS: Props[] = [
 ---
 
 <header
-  class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-600"
+  class="sticky top-0 z-0 w-full border-b border-slate-200 dark:border-slate-600"
 >
+  <Backdrop />
   <Section class="flex-row items-center justify-between py-2">
     <Logo />
-    <nav class="flex">
-      <ul class="flex">
+    <nav class="flex items-center">
+      <ul id="menu" class="flex items-center">
         {
           NAV_ITEMS.map(({ title, href }) => (
-            <li class="px-3 py-2">
-              <a href={href}>{title}</a>
+            <li>
+              <a class="px-3 py-2" href={href}>
+                {title}
+              </a>
             </li>
           ))
         }
