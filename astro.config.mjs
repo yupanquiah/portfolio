@@ -1,6 +1,6 @@
 // @ts-check
 import tailwindcss from "@tailwindcss/vite";
-import { defineConfig } from "astro/config";
+import { defineConfig, fontProviders } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
@@ -60,6 +60,24 @@ export default defineConfig({
             display: "swap",
           },
         ],
+      },
+      {
+        name: "geist",
+        cssVariable: "--font-geist",
+        provider: fontProviders.fontsource(),
+        weights: ["100 900"],
+        styles: ["normal"],
+        subsets: ["latin"],
+        display: "swap",
+      },
+      {
+        name: "Monaspace Neon",
+        cssVariable: "--font-monaspace-neon",
+        provider: fontProviders.fontsource(),
+        weights: ["400"],
+        styles: ["normal"],
+        subsets: ["latin"],
+        display: "swap",
       },
     ],
   },
