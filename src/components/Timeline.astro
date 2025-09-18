@@ -1,0 +1,52 @@
+---
+interface Props {
+  title: string;
+  company: string;
+  location: string;
+  startDate: string;
+  endDate: string;
+  responsibilities: string[];
+}
+
+const { title, company, location, startDate, endDate, responsibilities } =
+  Astro.props;
+---
+
+<section class="relative">
+  <aside class="absolute top-1 left-20 hidden h-full md:block">
+    <h4
+      class="font-monaspace-neon absolute top-0 right-full pr-5 text-right text-xs font-extralight text-gray-400"
+    >
+      <div class="spacing-1">
+        <div class="whitespace-nowrap">{startDate}</div>
+        <div class="whitespace-nowrap">{endDate}</div>
+      </div>
+    </h4>
+    <span
+      class="absolute top-0 left-0 flex h-4 w-4 -translate-x-1/2 items-center justify-center rounded-full bg-gray-200"
+    >
+      <span class="h-2 w-2 rounded-full bg-gray-400"></span>
+    </span>
+    <i
+      class="absolute top-5 left-0 h-[calc(100%-2px)] w-px -translate-x-1/2 bg-gray-200"
+    ></i>
+  </aside>
+  <main class="ml-24">
+    <section>
+      <h3 class="font-geist text-base font-bold">{title}</h3>
+      <div class="font-geist flex text-sm">
+        <h4 class="mr-1 font-medium opacity-50">{company}</h4> -
+        <span class="ml-1 font-normal opacity-45">{location}</span>
+      </div>
+    </section>
+    <ul class="opacity-75">
+      {
+        responsibilities.map((item) => (
+          <li class="font-n27 list-inside list-disc text-sm font-light">
+            {item}.
+          </li>
+        ))
+      }
+    </ul>
+  </main>
+</section>
