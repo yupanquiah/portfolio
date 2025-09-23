@@ -74,7 +74,7 @@ export default defineConfig({
         name: "Monaspace Neon",
         cssVariable: "--font-monaspace-neon",
         provider: fontProviders.fontsource(),
-        weights: [200, 400, 500],
+        weights: [200, 300, 400, 500],
         styles: ["normal"],
         display: "swap",
       },
