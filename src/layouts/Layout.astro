@@ -1,5 +1,6 @@
 ---
 import Head from "@components/Head.astro";
+import MenuModal from "@components/MenuModal.astro";
 
 import "@styles/global.css";
 
@@ -15,6 +16,7 @@ const { lang = "es" } = Astro.props;
     >
       <slot />
     </div>
+    <MenuModal />
   </body>
 </html>
 
@@ -24,6 +26,21 @@ const { lang = "es" } = Astro.props;
     const themeToggle = document.getElementById(
       "theme-toggle",
     ) as HTMLButtonElement;
+    const turnTheme = document.getElementById(
+      "turn-theme",
+    ) as HTMLButtonElement;
+
+    if (!themeToggle || !turnTheme) return;
+
+    const updateButtonText = () => {
+      const currentTheme = root.getAttribute("data-theme");
+
+      if (currentTheme === "dark") {
+        turnTheme.textContent = "Activar el modo claro";
+      } else {
+        turnTheme.textContent = "Activar el modo oscuro";
+      }
+    };
 
     const applyTheme = () => {
       const isDark =
@@ -34,15 +51,20 @@ const { lang = "es" } = Astro.props;
         );
       root.setAttribute("data-theme", isDark ? "dark" : "light");
       localStorage.theme = isDark ? "dark" : "light";
+
+      updateButtonText();
     };
 
     const changeTheme = () => {
       const isDarkMode = root.getAttribute("data-theme") === "dark";
       root.setAttribute("data-theme", isDarkMode ? "light" : "dark");
       localStorage.theme = isDarkMode ? "light" : "dark";
+
+      updateButtonText();
     };
 
     themeToggle.addEventListener("click", changeTheme);
+    turnTheme.addEventListener("click", changeTheme);
 
     applyTheme();
   });
