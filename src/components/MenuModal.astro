@@ -1,0 +1,75 @@
+---
+import ChevronRight from "@icons/chevron-right.svg";
+
+import { NAV_ITEMS } from "@data/constants";
+
+const currentPath = Astro.url.pathname;
+---
+
+<dialog
+  id="my-dialog"
+  closedby="any"
+  class="font-n27 mx-auto mt-auto mb-0 max-h-dvh w-full max-w-full rounded-t-lg bg-slate-50/90 p-0 text-slate-950 opacity-0 backdrop-blur-lg transition transition-discrete backdrop:bg-slate-500/20 open:translate-y-1 open:opacity-100 open:transition-all open:duration-300 open:ease-in-out dark:bg-slate-950/90 dark:text-slate-50 starting:open:translate-y-1 starting:open:opacity-0 starting:open:transition-opacity starting:open:duration-300 starting:open:ease-in-out"
+>
+  <nav class="font-n27 h-auto w-full px-6 py-8">
+    <ul class="flex flex-col space-y-1">
+      <li class="m-0">
+        <a
+          class={`inline-flex w-full rounded-md px-3 py-1.5 text-sm font-medium opacity-80 transition-all duration-300 ease-in-out hover:bg-slate-200 hover:opacity-100 items-center dark:hover:bg-slate-200/5 ${currentPath === "/" ? "opacity-100" : ""}`}
+          href="/"
+        >
+          Ir a la página de inicio
+          <ChevronRight class="ml-auto h-4 w-4" />
+        </a>
+      </li>
+      <hr class="my-2 bg-slate-950 opacity-20" />
+      {
+        NAV_ITEMS.slice(1).map(({ title, href }) => (
+          <li class="m-0">
+            <a
+              class={`inline-flex w-full items-center rounded-md px-3 py-1.5 text-sm font-medium opacity-80 transition-all duration-300 ease-in-out hover:bg-slate-200 hover:opacity-100 dark:hover:bg-slate-200/5 ${currentPath === href ? "opacity-100" : ""}`}
+              href={href}
+            >
+              {title}
+              <ChevronRight class="ml-auto h-4 w-4" />
+            </a>
+          </li>
+        ))
+      }
+      <hr class="my-2 bg-slate-950 opacity-20" />
+      <li class="m-0">
+        <button
+          id="turn-theme"
+          class="inline-flex w-full cursor-pointer items-center justify-center rounded-md border border-slate-950/20 px-3 py-1.5 text-sm font-medium transition-all duration-300 ease-in-out hover:bg-slate-200 dark:border-slate-50/20 dark:hover:bg-slate-200/5"
+        >
+          Activar el modo claro
+        </button>
+      </li>
+      <li class="m-0">
+        <form method="dialog">
+          <button
+            id="close-menu"
+            class="inline-flex w-full cursor-pointer items-center justify-center rounded-md px-3 py-1.5 text-sm font-medium transition-all duration-300 ease-in-out hover:bg-slate-200 dark:hover:bg-slate-200/5"
+          >
+            Cerrar menú
+          </button>
+        </form>
+      </li>
+    </ul>
+  </nav>
+</dialog>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const dialog = document.querySelector("dialog") as HTMLDialogElement;
+    const openMenu = document.getElementById("open-menu") as HTMLButtonElement;
+
+    openMenu.addEventListener("click", () => {
+      dialog.showModal();
+    });
+
+    /*  closeMenu.addEventListener("click", () => {
+      dialog.close();
+    }); */
+  });
+</script>
