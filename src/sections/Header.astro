@@ -7,17 +7,7 @@ import Menu from "@icons/menu.svg";
 import Moon from "@icons/moon.svg";
 import Sun from "@icons/sun.svg";
 
-interface Props {
-  title: string;
-  href: string;
-}
-
-const NAV_ITEMS: Props[] = [
-  { title: "Home", href: "/" },
-  { title: "About", href: "#about" },
-  { title: "Projects", href: "#projects" },
-  { title: "Contact", href: "#contact" },
-];
+import { NAV_ITEMS } from "@data/constants";
 
 const currentPath = Astro.url.pathname;
 ---
@@ -29,7 +19,7 @@ const currentPath = Astro.url.pathname;
   <Section class="flex-row items-center justify-between py-2">
     <Logo />
     <nav class="flex items-center gap-2">
-      <ul id="menu" class="flex items-center">
+      <ul id="menu" class="hidden items-center sm:flex">
         {
           NAV_ITEMS.map(({ title, href }) => (
             <li>
@@ -54,8 +44,8 @@ const currentPath = Astro.url.pathname;
           <Moon class="block h-3.5 w-3.5 opacity-50 dark:hidden" />
         </button>
         <button
-          id="menu-toggle"
-          class="h-full cursor-pointer rounded-md border border-slate-400 p-1.5 transition-opacity duration-200 hover:bg-black/5 hover:opacity-100 md:hidden dark:border-slate-400/60 dark:hover:bg-white/15"
+          id="open-menu"
+          class="h-full cursor-pointer rounded-md border border-slate-400 p-1.5 transition-opacity duration-200 hover:bg-black/5 hover:opacity-100 sm:hidden dark:border-slate-400/60 dark:hover:bg-white/15"
           name="toggle menu"
           type="button"
         >
