@@ -1,0 +1,61 @@
+---
+import Section from "@components/Section.astro";
+import Facebook from "@icons/facebook.svg";
+import GitHub from "@icons/github.svg";
+import LinkedIn from "@icons/linkedin.svg";
+import X from "@icons/x.svg";
+
+const SocialItems = [
+  {
+    title: "GitHub",
+    href: "https://github.com/yupanquiah",
+    icon: GitHub,
+  },
+  {
+    title: "LinkedIn",
+    href: "https://www.linkedin.com/in/humbertoyupanqui/",
+    icon: LinkedIn,
+  },
+  {
+    title: "X",
+    href: "https://x.com/yupanquiah",
+    icon: X,
+  },
+  {
+    title: "Facebook",
+    href: "https://www.facebook.com/humberto.yupanqui.7",
+    icon: Facebook,
+  },
+];
+---
+
+<footer class="w-full px-14">
+  <Section
+    class="items-center justify-center gap-2 px-10 py-8 md:flex-row-reverse md:items-center md:justify-between"
+  >
+    <ul class="inline-flex space-x-2">
+      {
+        SocialItems.map(({ href, icon: Icon }) => (
+          <li>
+            <a
+              class="inline-flex items-center space-x-2 p-2 text-sm font-medium text-slate-500 transition-opacity duration-200 ease-in-out hover:text-slate-600 dark:text-slate-400 dark:opacity-50 dark:hover:opacity-100"
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {Icon && <Icon class="size-5" />}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <p
+      class="text-center text-base font-medium text-slate-500 dark:text-slate-400"
+    >
+      &copy; {new Date().getFullYear()}
+      <a class="hover:underline" href="https://github.com/yupanquiah">
+        Humberto Yupanqui
+      </a>
+    </p>
+  </Section>
+</footer>

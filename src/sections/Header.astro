@@ -2,7 +2,7 @@
 import Backdrop from "@components/Backdrop.astro";
 import Section from "@components/Section.astro";
 
-import Logo from "@assets/astro.svg";
+import Logo from "@assets/brand.svg";
 import Menu from "@icons/menu.svg";
 import Moon from "@icons/moon.svg";
 import Sun from "@icons/sun.svg";
@@ -13,10 +13,10 @@ const currentPath = Astro.url.pathname;
 ---
 
 <header
-  class="sticky top-0 z-50 w-full border-b border-slate-200 bg-slate-50/60 backdrop-blur-lg dark:border-slate-600 dark:bg-slate-950/60"
+  class="sticky top-0 z-50 w-full border-b border-slate-200 bg-slate-50/60 px-14 backdrop-blur-lg dark:border-slate-600 dark:bg-slate-950/60"
 >
   <Backdrop />
-  <Section class="flex-row items-center justify-between py-2">
+  <Section class="flex-row items-center justify-between py-4">
     <Logo />
     <nav class="flex items-center gap-2">
       <ul id="menu" class="hidden items-center sm:flex">
