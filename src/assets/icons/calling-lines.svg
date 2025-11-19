@@ -1,6 +1,19 @@
-<svg width="470" height="175" viewBox="0 0 470 175" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M275 57V4H125" stroke="#E7E7E7"/>
-<path d="M193 88.5V175" stroke="#E7E7E7"/>
-<path d="M464.995 86.5033H302.998" stroke="#E7E7E7"/>
-<path d="M168.006 56.0125H4.99371" stroke="#E7E7E7"/>
+<svg width="300" height="175" viewBox="0 0 300 175" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path id="line" d="M275 57V4H125" stroke="#E7E7E7"/>
+<path id="line" d="M193 88.5V175" stroke="#E7E7E7"/>
+<path id="line" d="M168.006 56.0125H4.99371" stroke="#E7E7E7"/>
+
+<style>
+  #line {
+    stroke-dasharray: 4 4;
+    stroke-dashoffset: 0;
+    animation: dash 1s linear infinite;
+  }
+
+  @keyframes dash {
+    to {
+      stroke-dashoffset: -8;
+    }
+  }
+</style>
 </svg>
