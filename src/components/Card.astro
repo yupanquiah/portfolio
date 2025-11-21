@@ -1,0 +1,87 @@
+---
+import { Image } from "astro:assets";
+
+import GitHub from "@icons/github.svg";
+import Link from "@icons/link.svg";
+
+import AstroIcon from "@icons/code/astro.svg";
+import CSS from "@icons/code/css.svg";
+import JavaScript from "@icons/code/javascript.svg";
+import MySQL from "@icons/code/mysql.svg";
+import NodeJS from "@icons/code/nodejs.svg";
+import Tailwindcss from "@icons/code/tailwindcss.svg";
+import TypeScript from "@icons/code/typescript.svg";
+
+const ICONS: Record<string, string | any> = {
+  Astro: AstroIcon,
+  NodeJS,
+  Tailwindcss,
+  TypeScript,
+  JavaScript,
+  CSS,
+  MySQL,
+};
+
+interface Props {
+  title: string;
+  description: string;
+  image: string;
+  technologies: string[];
+  repository: string;
+  link?: string;
+  alt: string;
+  year: number;
+}
+
+const { title, description, image, technologies, repository, link, alt, year } =
+  Astro.props;
+---
+
+<section
+  class="flex flex-col rounded-lg border border-slate-200 bg-slate-50 p-6 dark:border-slate-900 dark:bg-slate-900"
+>
+  <header class="space-y-1">
+    <Image
+      class="m-auto aspect-video rounded-lg object-fill object-center"
+      src={image}
+      alt={alt}
+      width={400}
+      height={400}
+    />
+    <h4 class="font-geist my-3 text-lg font-bold">
+      {title}
+    </h4>
+    <div class="flex space-x-2">
+      {
+        technologies.map((tech) => {
+          const Icon = ICONS[tech];
+          return (
+            <span class="font-monaspace-neon inline-flex items-start justify-start gap-1 rounded-full bg-slate-200 px-2 py-1 text-xs font-light text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+              <slot name="icon" />
+              {Icon && <Icon height={14} width={14} />}
+              {tech}
+            </span>
+          );
+        })
+      }
+    </div>
+  </header>
+  <main class="my-4">
+    <p class="font-n27 text-base font-light">
+      {description}
+    </p>
+  </main>
+  <footer class="font-monaspace-neon flex items-end justify-end gap-2">
+    <span class="mr-auto text-sm font-normal opacity-50">
+      {year}
+    </span>
+    <a class="opacity-50 hover:opacity-100" href={link || "#"}>
+      <Link width={20} height={20} />
+      <span class="hidden">Visitar</span>
+    </a>
+    <a class="opacity-50 hover:opacity-100" href={repository || "#"}>
+      <GitHub width={20} height={20} />
+      <span class="hidden">Código</span>
+    </a>
+  </footer>
+</section>
