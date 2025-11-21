@@ -1,0 +1,45 @@
+---
+import Card from "@components/Card.astro";
+import CodeTag from "@components/CodeTag.astro";
+import Section from "@components/Section.astro";
+import SectionNumber from "@components/SectionNumber.astro";
+
+import { PROJECTS } from "@data/projects";
+---
+
+<div
+  class="w-full border-b border-slate-200 px-0 sm:px-14 dark:border-slate-900"
+>
+  <Section class="relative px-10 py-8 pt-20">
+    <SectionNumber number="02" />
+    <CodeTag tag="projects.ts" />
+    <h2 class="font-geist text-2xl font-bold text-balance">Proyectos</h2>
+    <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        PROJECTS.map(
+          ({
+            title,
+            description,
+            image,
+            technologies,
+            repository,
+            link,
+            alt,
+            year,
+          }) => (
+            <Card
+              title={title}
+              description={description}
+              image={image}
+              technologies={technologies}
+              repository={repository}
+              link={link}
+              alt={alt}
+              year={year}
+            />
+          ),
+        )
+      }
+    </div>
+  </Section>
+</div>
