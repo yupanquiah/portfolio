@@ -1,0 +1,77 @@
+---
+import Code from "@components/Code.astro";
+import CodeTag from "@components/CodeTag.astro";
+import Section from "@components/Section.astro";
+import SectionNumber from "@components/SectionNumber.astro";
+
+import CallingLines from "@icons/calling-lines.svg";
+---
+
+<div
+  class="w-full border-b border-slate-200 px-0 sm:px-14 dark:border-slate-900"
+>
+  <Section class="relative px-10 py-20">
+    <SectionNumber number="03" />
+    <CodeTag tag="CallToAction.astro" />
+    <h2 class="font-geist hidden text-2xl font-bold text-balance">
+      Contáctame
+    </h2>
+    <section class="flex flex-col lg:flex-row lg:justify-between">
+      <div class="flex flex-col justify-center py-10 sm:pl-20 lg:pl-0">
+        <h4 class="font-geist inline-flex text-2xl font-bold text-balance">
+          ¿Tienes una idea o proyecto en mente?
+        </h4>
+        <h4
+          class="font-geist inline-flex text-2xl font-bold text-balance opacity-70 dark:opacity-50"
+        >
+          ¡Hablemos! Estoy aquí para <br /> ayudarte a hacerlo realidad.
+        </h4>
+      </div>
+      <div class="relative mb-20 pt-16 pl-52 lg:pr-4 lg:pl-0">
+        <a
+          href="mailto:yupanquiah@gmail.com"
+          class="font-geist relative z-50 inline-flex cursor-pointer bg-slate-300 px-5 py-2.5 font-medium text-slate-950 hover:bg-slate-200"
+        >
+          <button name="send mail">Enviar un correo</button>
+        </a>
+        <CallingLines
+          class="absolute top-4 left-13 z-0 select-none lg:-left-40 dark:opacity-20"
+        />
+        <Code
+          class="-top-0.5 left-46 lg:-left-8"
+          tag="client 0ms"
+          id="client"
+        />
+        <Code class="top-42 left-62 lg:left-9" tag="@click='contact'" />
+        <Code class="top-19 left-15 lg:-left-38" tag="ContactButton.astro" />
+      </div>
+    </section>
+  </Section>
+</div>
+
+<script>
+  const start = performance.now();
+  const clientTime = document.getElementById("client") as HTMLElement;
+
+  window.addEventListener("load", () => {
+    const end = performance.now();
+    const ms = Math.round(end - start);
+
+    let current = 0;
+    const duration = 400;
+    const steps = 30;
+    const stepTime = duration / steps;
+    const increment = ms / steps;
+
+    const counter = setInterval(() => {
+      current += increment;
+
+      if (current >= ms) {
+        current = ms;
+        clearInterval(counter);
+      }
+
+      clientTime.textContent = `Client in ${Math.round(current)}ms`;
+    }, stepTime);
+  });
+</script>
