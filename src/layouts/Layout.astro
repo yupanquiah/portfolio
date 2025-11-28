@@ -1,6 +1,8 @@
 ---
 import Head from "@components/Head.astro";
 import MenuModal from "@components/MenuModal.astro";
+import Footer from "@sections/Footer.astro";
+import Header from "@sections/Header.astro";
 
 import "@styles/global.css";
 
@@ -14,7 +16,11 @@ const { lang = "es" } = Astro.props;
     <div
       class="font-n27 h-full min-h-dvh w-full bg-slate-50 text-slate-950 dark:bg-slate-950 dark:text-slate-50"
     >
-      <slot />
+    <Header />
+      <main>
+        <slot />
+      </main>
+      <Footer />
     </div>
     <MenuModal />
   </body>
