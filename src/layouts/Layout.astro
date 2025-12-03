@@ -17,7 +17,7 @@ const { lang = "es" } = Astro.props;
       class="font-n27 h-full min-h-dvh w-full bg-slate-50 text-slate-950 dark:bg-slate-950 dark:text-slate-50"
     >
     <Header />
-      <main>
+      <main class:list={Astro.props.class}>
         <slot />
       </main>
       <Footer />
