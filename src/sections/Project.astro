@@ -4,6 +4,8 @@ import CodeTag from "@components/CodeTag.astro";
 import Section from "@components/Section.astro";
 import SectionNumber from "@components/SectionNumber.astro";
 
+import ArrowNarrowRight from "@icons/arrow-narrow-right.svg";
+
 import { PROJECTS } from "@data/projects";
 ---
 
@@ -41,5 +43,13 @@ import { PROJECTS } from "@data/projects";
         )
       }
     </div>
+    <a
+      href="#"
+      class="group mt-4 inline-flex items-center justify-end gap-1 text-sm font-light opacity-70 transition-opacity duration-300 hover:opacity-100"
+    >
+      Ver mas proyectos <ArrowNarrowRight
+        class="group-hover:translate-x-0.5 group-hover:transition-all group-hover:duration-300"
+      />
+    </a>
   </Section>
 </div>
