@@ -2,7 +2,7 @@
 import { Font } from "astro:assets";
 import { ClientRouter } from "astro:transitions";
 
-const { name } = Astro.props;
+const { title } = Astro.props;
 ---
 
 <head>
@@ -12,7 +12,7 @@ const { name } = Astro.props;
   <Font cssVariable="--font-n27" preload />
   <Font cssVariable="--font-geist" preload />
   <Font cssVariable="--font-monaspace-neon" preload />
-  <title>Portfolio - {name}</title>
+  <title>{title}</title>
   <script is:inline>
     const root = document.documentElement;
     const isDark =
