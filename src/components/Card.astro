@@ -75,11 +75,19 @@ const { title, description, image, technologies, repository, link, alt, year } =
     <span class="mr-auto text-sm font-normal opacity-50">
       {year}
     </span>
-    <a class="opacity-50 hover:opacity-100" href={link || "#"}>
+    <a
+      class="opacity-50 hover:opacity-100"
+      href={link || "#"}
+      aria-label="Visitar proyecto"
+    >
       <Link width={20} height={20} />
       <span class="hidden">Visitar</span>
     </a>
-    <a class="opacity-50 hover:opacity-100" href={repository || "#"}>
+    <a
+      class="opacity-50 hover:opacity-100"
+      href={repository || "#"}
+      aria-label="Ver código fuente"
+    >
       <GitHub width={20} height={20} />
       <span class="hidden">Código</span>
     </a>
