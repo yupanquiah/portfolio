@@ -107,5 +107,9 @@
     "unicorn/prefer-set-size": "warn",
     "unicorn/prefer-string-starts-ends-with": "warn"
   },
-  "ignorePatterns": ["node_modules", "dist", ".astro"]
+  "env": {
+    "builtin": true
+  },
+  "globals": {},
+  "ignorePatterns": ["node_modules/", "dist/", ".vscode/", ".astro/"]
 }
