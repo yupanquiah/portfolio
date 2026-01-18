@@ -62,7 +62,7 @@ export default defineConfig({
         ],
       },
       {
-        name: "geist",
+        name: "Geist",
         cssVariable: "--font-geist",
         provider: fontProviders.fontsource(),
         weights: ["100 900"],
