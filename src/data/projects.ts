@@ -1,0 +1,32 @@
+export const PROJECTS = [
+  {
+    title: "Project One",
+    description: "A brief description of Project One.",
+    technologies: ["TypeScript", "NodeJS"],
+    link: "<https://project-one.com>",
+    repository: "<https://github.com/user/project-one>",
+    image: "/src/assets/imgs/image.png",
+    alt: "Project One",
+    year: 2023,
+  },
+  {
+    title: "Project Two",
+    description: "A brief description of Project Two.",
+    technologies: ["Tailwindcss", "Astro"],
+    link: "<https://project-two.com>",
+    repository: "<https://github.com/user/project-two>",
+    image: "/src/assets/imgs/image.png",
+    alt: "Project Two",
+    year: 2023,
+  },
+  {
+    title: "Project Three",
+    description: "A brief description of Project Three.",
+    technologies: ["CSS", "NodeJS", "MySQL"],
+    link: "<https://project-three.com>",
+    repository: "<https://github.com/user/project-three>",
+    image: "/src/assets/imgs/image.png",
+    alt: "Project Three",
+    year: 2022,
+  },
+];

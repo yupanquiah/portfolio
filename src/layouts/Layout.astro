@@ -6,17 +6,17 @@ import Header from "@sections/Header.astro";
 
 import "@styles/global.css";
 
-const { lang = "es" } = Astro.props;
+const { lang = "es", title } = Astro.props;
 ---
 
 <!doctype html>
 <html lang={lang} data-theme="dark">
-  <Head name="Humberto Yupanqui Apaza" />
+  <Head title={title} />
   <body>
     <div
       class="font-n27 h-full min-h-dvh w-full bg-slate-50 text-slate-950 dark:bg-slate-950 dark:text-slate-50"
     >
-    <Header />
+      <Header />
       <main class:list={Astro.props.class}>
         <slot />
       </main>

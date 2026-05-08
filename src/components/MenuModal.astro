@@ -29,6 +29,7 @@ const currentPath = Astro.url.pathname;
             <a
               class={`inline-flex w-full items-center rounded-md px-3 py-1.5 text-sm font-medium opacity-80 transition-all duration-300 ease-in-out hover:bg-slate-200 hover:opacity-100 dark:hover:bg-slate-200/5 ${currentPath === href ? "opacity-100" : ""}`}
               href={href}
+              target={href.startsWith("http") ? "_blank" : undefined}
             >
               {title}
               <ChevronRight class="ml-auto h-4 w-4" />

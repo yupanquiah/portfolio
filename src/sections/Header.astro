@@ -17,7 +17,7 @@ const currentPath = Astro.url.pathname;
 >
   <Backdrop />
   <Section class="flex-row items-center justify-between px-10 py-4">
-    <a href="/">
+    <a href="/" aria-label="Marca de Humberto Yupanqui Apaza">
       <Logo />
     </a>
     <nav class="flex items-center gap-2">
@@ -28,6 +28,7 @@ const currentPath = Astro.url.pathname;
               <a
                 class={`px-3 py-2 text-sm font-normal opacity-50 transition-opacity duration-200 hover:opacity-100 ${currentPath === href ? "opacity-100" : ""}`}
                 href={href}
+                target={href.startsWith("http") ? "_blank" : undefined}
               >
                 {title}
               </a>
